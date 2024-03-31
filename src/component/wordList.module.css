@@ -1,0 +1,20 @@
+.row{
+    width: 100%;
+}
+.cell{
+    width: 100%;
+}
+
+.button:hover{
+    box-shadow: 2px 2px 2px 2px violet;
+}
+
+.input{
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border: rgb(74, 13, 74) solid 1px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px 2px violet;
+ 
+}

@@ -1,0 +1,9 @@
+[
+{"id":"15486","english":"two","transcription":"[tu:]","russian":"два","tags":"numbers","tags_json":"[\"numbers\"]"},
+{"id":"15540","english":"pear","transcription":"[peə]","russian":"груша","tags":"fruit","tags_json":"[\"fruit\"]"},
+{"id":"15544","english":"table","transcription":"[teɪbl]","russian":"стол","tags":"furniture","tags_json":"[\"furniture\"]"},
+{"id":"15546","english":"laptop","transcription":"[læptɒp]","russian":"ноутбук","tags":"general","tags_json":"[\"general\"]"},
+{"id":"15547","english":"tea","transcription":"[tiː]","russian":"чай","tags":"food","tags_json":"[\"food\"]"},
+{"id":"15548","english":"coctail","transcription":"[ˈkɒkteɪl]","russian":"коктейль","tags":"food","tags_json":"[\"food\"]"},
+{"id":"15549","english":"example","transcription":"[example]","russian":"пример","tags":"general","tags_json":"[\"general\"]"}
+]

@@ -1,0 +1,14 @@
+.card{
+    border: 2px solid rgb(86, 8, 86);
+    border-radius: 5px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: darksalmon;
+    margin: 10px;
+}
+
+.card:hover{
+    background-color: violet;
+}
