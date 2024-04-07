@@ -1,0 +1,42 @@
+.card{
+    border: 2px solid rgb(86, 8, 86);
+    border-radius: 5px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: wheat;
+    margin: 10px;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.card:hover{
+    background-color: violet;
+}
+
+
+
+.category{
+    color: darkblue;
+    font-size: small;
+}
+
+.word{
+    color: rgb(123, 10, 123);
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.transcription{
+    color: darkblue;
+    font-size:medium;
+}
+
+.translation{
+    color:rgb(123, 10, 123);
+    font-size: large;
+    margin-bottom: 20px;
+    font-weight: 500;
+}

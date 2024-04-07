@@ -1,5 +1,5 @@
-import WordList from "./wordlist.jsx";
-import data from "../data/data.json";
+import WordList from "../WordList/wordlist";
+import data from "../../data/data.json";
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Paper from '@mui/material/Paper';
@@ -12,19 +12,19 @@ import styles from './main.module.css';
 function Main(){
 
     return(
-        <div>
+        <>
              <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table sx={{ maxWidth: 1300 }} aria-label="simple table" className={styles.table}>
                     <TableHead className={styles.title}>
                         <TableRow>
-                        <TableCell>id</TableCell>
-                        <TableCell>category</TableCell>
-                        <TableCell>word</TableCell>
-                        <TableCell>transcription</TableCell>
-                        <TableCell>translation</TableCell>
+                        <TableCell  className={styles.cell}>id</TableCell>
+                        <TableCell  className={styles.cell}>category</TableCell>
+                        <TableCell  className={styles.cell}>word</TableCell>
+                        <TableCell  className={styles.cell}>transcription</TableCell>
+                        <TableCell  className={styles.cell}>translation</TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody className={styles.body}>
+                    <TableBody>
              {data.map((item)=>{
       return(
         <WordList id = {item.id} category={item.tags} word={item.english} transcription={item.transcription} translation={item.russian} />
@@ -33,7 +33,7 @@ function Main(){
        </TableBody>
                 </Table>
             </TableContainer>
-        </div>
+        </>
     )
 
 }

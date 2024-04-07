@@ -19,48 +19,46 @@ function WordList({id,word,translation,category,transcription}){
     return(
         <>
         { isVisible ? (
-        <div className={styles.row}>
-           <TableRow>
+        
+           <TableRow className={styles.row}>
            <TableCell className={styles.cell}>{id}</TableCell>
-            <TableCell >{category}</TableCell>
-            <TableCell >{word}</TableCell>
-            <TableCell>{transcription}</TableCell>
-            <TableCell>{translation}</TableCell>
+            <TableCell  className={styles.cell}>{category}</TableCell>
+            <TableCell  className={styles.cell}>{word}</TableCell>
+            <TableCell  className={styles.cell}>{transcription}</TableCell>
+            <TableCell  className={styles.cell}>{translation}</TableCell>
             <Fab className={styles.button} color="secondary" size="small" aria-label="edit" onClick={editCard}>
              <EditIcon />
             </Fab>
             <Fab className={styles.button} color="secondary" aria-label="delete" size="small">
             <DeleteIcon /></Fab>     
             </TableRow>
-        </div>
+      
         ) : (
-            <div>
-               <TableRow key={id} >
-                    <TableCell>
+            <>
+               <TableRow key={id} className={styles.inputRow}>
+                    <TableCell className={styles.cell}>
                             <p>{id}</p>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={styles.cell}>
                             <input className={styles.input} type="text" placeholder={category}></input>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={styles.cell}>
                             <input className={styles.input} type="text" placeholder={word}></input>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={styles.cell}>
                             <input className={styles.input} type="text" placeholder={transcription}></input>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={styles.cell}>
                             <input className={styles.input} type="text" placeholder={translation}></input>
                         </TableCell>
-                        <td>
-                            <Fab color="secondary" size="small" aria-label="save">
+                            <Fab  className={styles.button} color="secondary" size="small" aria-label="save">
                                 <CheckIcon />
                             </Fab>
-                            <Fab  color="secondary" size="small" aria-label="cancel" onClick={editCard}>
+                            <Fab  className={styles.button} color="secondary" size="small" aria-label="cancel" onClick={editCard}>
                                 < CloseIcon />
-                            </Fab>
-                        </td>
+                            </Fab>  
                     </TableRow>    
-        </div>
+        </>
         )}
       </>
     );

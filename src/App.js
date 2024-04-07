@@ -1,9 +1,9 @@
 
 import './App.css';
-import Header from './component/header.jsx';
-import AddWord from './component/input_addword.jsx';
-import Main from './component/main.jsx';
-import Card from './component/wordcard';
+import Header from './component/Header/header';
+import AddWord from './component/InputAdd/input_addword';
+import Main from './component/Main/main.jsx';
+import Card from './component/Card/wordcard';
 import data from './data/data.json';
 
 function App() {
