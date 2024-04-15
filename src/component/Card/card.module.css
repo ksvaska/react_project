@@ -1,14 +1,14 @@
 .card{
     border: 2px solid rgb(86, 8, 86);
     border-radius: 5px;
-    width: 180px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     text-align: center;
     background-color: wheat;
     margin: 10px;
     align-items: center;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .card:hover{
