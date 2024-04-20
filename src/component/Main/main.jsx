@@ -1,3 +1,4 @@
+import AddWord from '../InputAdd/input_addword'
 import WordList from "../WordList/wordlist";
 import data from "../../data/data.json";
 import TableRow from '@mui/material/TableRow';
@@ -13,6 +14,7 @@ function Main(){
 
     return(
         <>
+        <AddWord/>
              <TableContainer component={Paper}>
                 <Table sx={{ maxWidth: 1300 }} aria-label="simple table" className={styles.table}>
                     <TableHead className={styles.title}>
@@ -27,7 +29,11 @@ function Main(){
                     <TableBody>
              {data.map((item)=>{
       return(
-        <WordList id = {item.id} category={item.tags} word={item.english} transcription={item.transcription} translation={item.russian} />
+        <WordList id = {item.id} 
+        category={item.tags} 
+        word={item.english} 
+        transcription={item.transcription} 
+        translation={item.russian} />
       )
     })}
        </TableBody>

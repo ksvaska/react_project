@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Fab from '@mui/material/Fab';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -12,11 +12,8 @@ import styles from './wordList.module.css';
 function WordList({id,word,translation,category,transcription}){
 
     const [isVisible, setIsVisible] = useState(true);
-    const [value, setValue] = useState('');
+  
 
-    const handleChange = (event)=>{
-        setValue(event.target.value);
-    }
 
     const editCard = () => {
         setIsVisible((prev) => !prev);
@@ -45,16 +42,16 @@ function WordList({id,word,translation,category,transcription}){
                             <p>{id}</p>
                         </TableCell>
                         <TableCell className={styles.cell}>
-                            <input className={styles.input} type="text" placeholder={category} ></input>
+                            <input className={styles.input} type="text" defaultValue={category} ></input>
                         </TableCell>
                         <TableCell className={styles.cell}>
-                            <input className={styles.input} type="text" placeholder={word} ></input>
+                            <input className={styles.input} type="text" defaultValue={word} ></input>
                         </TableCell>
                         <TableCell className={styles.cell}>
-                            <input className={styles.input} type="text" placeholder={transcription} ></input>
+                            <input className={styles.input} type="text" defaultValue={transcription} ></input>
                         </TableCell>
                         <TableCell className={styles.cell}>
-                            <input className={styles.input} type="text" placeholder={translation}></input>
+                            <input className={styles.input} type="text" defaultValue={translation}></input>
                         </TableCell>
                             <Fab  className={styles.button} color="secondary" size="small" aria-label="save">
                                 <CheckIcon />

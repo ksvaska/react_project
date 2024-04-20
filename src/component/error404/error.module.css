@@ -1,0 +1,12 @@
+.title{
+    font-size: 40px;
+    margin: 60px;
+    color: rgb(7, 63, 111);  
+}
+
+.error{
+    font-size: 40px;
+    color: brown;
+    font-weight: 600;
+  
+}
