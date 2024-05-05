@@ -6,10 +6,17 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import './cardGallery.css'
+import { useState } from 'react';
 
 function CardGallery (){
-    return(
-        <>
+  const [wordCount, setWordCount] = useState(0)
+
+  const addToWord = () => {
+    setWordCount(wordCount+1)
+   
+   }
+    return(    
+      <>
          <Swiper
                 pagination={{
                 type: "fraction",
@@ -21,12 +28,13 @@ function CardGallery (){
          {data.map((item)=>{
       return(
         <SwiperSlide>
-        <Card id = {item.id} category={item.tags} word={item.english} transcription={item.transcription} translation={item.russian}/>
+        <Card id = {item.id} category={item.tags} word={item.english} transcription={item.transcription} translation={item.russian} addToWord = {()=> {addToWord()}}/>
         </SwiperSlide>
       )
     })}
      </Swiper>
-        </>
+     <p className='wordcount'>Выучено слов: {wordCount} </p>
+      </>
     )
 }
 
