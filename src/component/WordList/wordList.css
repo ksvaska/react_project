@@ -16,6 +16,13 @@
     box-shadow: 2px 2px 2px 2px violet;
  
 }
+.invalid{
+    border: rgb(192, 15, 15) solid 3px;
+    margin: 5px;
+    width: 150px;
+    height: 20px;
+    border-radius: 3px;
+}
 
 .cell{
     border-right: 2px solid rgb(28, 5, 83);
@@ -27,4 +34,9 @@
     width: 300px;
     border-left: 2px solid rgb(28, 5, 83);
     border-right: 2px solid rgb(28, 5, 83);
+}
+
+.error{
+    color: red;
+    font-size: smaller;
 }
