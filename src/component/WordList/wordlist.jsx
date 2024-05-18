@@ -10,7 +10,7 @@ import './wordList.css';
 import useInput from '../../hooks/inputvalid';
 
 
-function WordList({id,word,translation,category,transcription}){
+function WordList({id,word,translation,category,transcription, handleUpdateWord, handleDeleteWord}){
 
     const [isVisible, setIsVisible] = useState(true);
     const{
@@ -67,6 +67,7 @@ function WordList({id,word,translation,category,transcription}){
 
     const editCard = () => {
         setIsVisible((prev) => !prev);
+        handleUpdateWord(word)
     };
     return(
         <>
@@ -81,7 +82,7 @@ function WordList({id,word,translation,category,transcription}){
             <Fab className='button' color="secondary" size="small" aria-label="edit" onClick={editCard}>
              <EditIcon />
             </Fab>
-            <Fab className='button' color="secondary" aria-label="delete" size="small">
+            <Fab className='button' color="secondary" aria-label="delete" size="small" onClick={() => handleDeleteWord(id)}>
             <DeleteIcon /></Fab>     
             </TableRow>
       

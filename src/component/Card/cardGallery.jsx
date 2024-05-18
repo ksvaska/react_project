@@ -6,10 +6,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import './cardGallery.css'
-import { useState } from 'react';
+import { useState,useContext } from 'react';
+import Context from '../../context/context';
+
 
 function CardGallery (){
   const [wordCount, setWordCount] = useState(0)
+  const { words } =
+    useContext(Context);
 
   const addToWord = () => {
     setWordCount(wordCount+1)
@@ -25,7 +29,7 @@ function CardGallery (){
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
             >
-         {data.map((item)=>{
+         {words.map((item)=>{
       return(
         <SwiperSlide>
         <Card id = {item.id} category={item.tags} word={item.english} transcription={item.transcription} translation={item.russian} addToWord = {()=> {addToWord()}}/>
