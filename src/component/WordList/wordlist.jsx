@@ -66,15 +66,15 @@ function WordList({id,word,translation,category,transcription, handleDeleteWord}
         updateWord(updatedWord);
     }
 
-    const a = {
+    const inputValue = {
         russian: translation || inputTranslation , transcription: transcription || inputTranscription, english: word || inputWord, id:id, tags: category || inputCategory, tags__json:""}
     
 
     const onSabmitHandler = (e) =>{
         e.preventDefault();
         console.log(inputCategory || category, inputWord || word,inputTranscription || transcription, inputTranslation || translation);
-        handleUpdateWord(a);
-        console.log(a)
+        handleUpdateWord(inputValue);
+        console.log(inputValue)
         editCard(); 
        
     }
