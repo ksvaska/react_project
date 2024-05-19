@@ -1,5 +1,4 @@
 import Card from './wordcard';
-import data from '../../data/data.json';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/pagination";

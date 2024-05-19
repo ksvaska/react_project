@@ -10,12 +10,18 @@ import { useState } from 'react';
 
 
 
+
 function App() {
+
   const [words, setWords] = useState([]);
+ 
+  
   const fetchWords = async()=>{
     const response = await fetch(`/api/words`);
     const data = await response.json();
     setWords(data);
+    
+   
   }
 
   const addWord = async (newWord) => {
@@ -28,6 +34,7 @@ function App() {
     });
     const data = await response.json();
     setWords((words) => [...words, data]);
+   
   };
 
   const updateWord = async (updatedWord) => {
@@ -40,23 +47,27 @@ function App() {
     });
     const data = await response.json();
     setWords(words.map((word) => (word.id === updatedWord.id ? data : word)));
+   
   };
   const deleteWord = async (id) => {
     await fetch(`/api/words/${id}/delete`, {
       method: "POST",
     });
     setWords(words.filter((word) => word.id !== id));
+    
   };
+  
+   
   
   return (
     <Context.Provider
     value={{
       words: words,
       fetchWords: fetchWords,
-      addWord,
-      updateWord,
-      deleteWord,
-    }}>
+      addWord: addWord,
+      updateWord: updateWord,
+      deleteWord: deleteWord,
+    }}>   
     <Router>
     <div className="App">
      <Header/>
@@ -66,7 +77,7 @@ function App() {
       <Route path='*'element={<Error/>} />
     </Routes>
     </div>
-    </Router>
+    </Router> 
     </Context.Provider>
   );
 }

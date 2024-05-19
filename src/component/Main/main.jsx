@@ -1,6 +1,5 @@
 import AddWord from '../InputAdd/input_addword'
 import WordList from "../WordList/wordlist";
-//import data from "../../data/data.json";
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Paper from '@mui/material/Paper';
@@ -10,30 +9,39 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import styles from './main.module.css';
 import Context from '../../context/context';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 function Main(){
 
-    const { words, fetchWords, addWord, updateWord, deleteWord } =
-    useContext(Context);
+   
+ const { words, fetchWords, addWord, deleteWord } =
+  useContext(Context);
+  const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
         fetchWords();
+        setLoading(false);
       }, []);
       
       const handleAddWord = (newWord) => {
         addWord(newWord);
       };
-      const handleUpdateWord = (updatedWord) => {
-        updateWord(updatedWord);
-      };
+     
+        
+      
       const handleDeleteWord = (id) => {
         deleteWord(id);
       };
+
+      
     
 
     return(
-        <>
+     
+        <>  
+        {loading ? (<p>Loading</p> ): (
+          <>
         <AddWord onSubmitInWordlist={handleAddWord}/>
              <TableContainer component={Paper}>
                 <Table sx={{ maxWidth: 1300 }} aria-label="simple table" className={styles.table}>
@@ -55,14 +63,17 @@ function Main(){
         transcription={item.transcription} 
         translation={item.russian} 
         handleDeleteWord={handleDeleteWord}
-        handleUpdateWord={handleUpdateWord}
         />
       )
     })}
        </TableBody>
                 </Table>
             </TableContainer>
+            </>)
+}
+
         </>
+  
     )
 
 }

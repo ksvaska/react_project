@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useContext } from 'react';
 import Fab from '@mui/material/Fab';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -8,11 +8,14 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import './wordList.css'; 
 import useInput from '../../hooks/inputvalid';
+import Context from '../../context/context';
 
 
-function WordList({id,word,translation,category,transcription, handleUpdateWord, handleDeleteWord}){
+
+function WordList({id,word,translation,category,transcription, handleDeleteWord}){
 
     const [isVisible, setIsVisible] = useState(true);
+    const{updateWord} = useContext(Context);
     const{
         value: inputCategory,
         hasError: isCategoryInputInvalid,
@@ -59,16 +62,28 @@ function WordList({id,word,translation,category,transcription, handleUpdateWord,
         isDisabled = false;
     }
 
+    const handleUpdateWord = (updatedWord) => {
+        updateWord(updatedWord);
+    }
+
+    const a = {
+        russian: translation || inputTranslation , transcription: transcription || inputTranscription, english: word || inputWord, id:id, tags: category || inputCategory, tags__json:""}
+    
+
     const onSabmitHandler = (e) =>{
         e.preventDefault();
         console.log(inputCategory || category, inputWord || word,inputTranscription || transcription, inputTranslation || translation);
-        editCard();
+        handleUpdateWord(a);
+        console.log(a)
+        editCard(); 
+       
     }
 
     const editCard = () => {
         setIsVisible((prev) => !prev);
-        handleUpdateWord(word)
-    };
+       
+       
+};
     return(
         <>
         { isVisible ? (
@@ -108,7 +123,7 @@ function WordList({id,word,translation,category,transcription, handleUpdateWord,
                             <input className={styleTranslation} type="text" defaultValue={translation} value={inputTranslation} onChange={translationInputChangeHandler}></input>
                             {isTranslationInputInvalid &&  <span className="error">Введите перевод</span>}
                         </TableCell>
-                            <Fab  className='button' color="secondary" size="small" aria-label="save" disabled={isDisabled} onClick={onSabmitHandler}>
+                            <Fab  className='button' color="secondary" size="small" aria-label="save" type='submit' disabled={isDisabled} onClick={onSabmitHandler}>
                                 <CheckIcon />
                             </Fab>
                             <Fab  className='button' color="secondary" size="small" aria-label="cancel" onClick={editCard}>
