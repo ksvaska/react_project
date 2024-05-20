@@ -66,9 +66,15 @@ function WordList({id,word,translation,category,transcription, handleDeleteWord}
         updateWord(updatedWord);
     }
 
+
     const inputValue = {
-        russian: translation || inputTranslation , transcription: transcription || inputTranscription, english: word || inputWord, id:id, tags: category || inputCategory, tags__json:""}
-    
+        russian: inputTranslation || translation , 
+        transcription: inputTranscription || transcription , 
+        english: inputWord || word , 
+        id:id, 
+        tags: inputCategory || category , 
+        tags__json:""}
+   
 
     const onSabmitHandler = (e) =>{
         e.preventDefault();

@@ -10,6 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import styles from './main.module.css';
 import Context from '../../context/context';
 import { useContext, useEffect, useState } from 'react';
+import Loading from '../loading/loading';
 
 function Main(){
 
@@ -35,12 +36,10 @@ function Main(){
       };
 
       
-    
-
     return(
      
         <>  
-        {loading ? (<p>Loading</p> ): (
+        {loading ? ( <Loading/> ): (
           <>
         <AddWord onSubmitInWordlist={handleAddWord}/>
              <TableContainer component={Paper}>
