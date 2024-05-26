@@ -5,14 +5,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import './cardGallery.css'
-import { useState,useContext } from 'react';
-import Context from '../../context/context';
+import { useState} from 'react';
+import { observer } from 'mobx-react-lite';
+import wordsStore from '../../stores/context';
 
 
-function CardGallery (){
+const CardGallery = observer(()=>{
   const [wordCount, setWordCount] = useState(0)
-  const { words } =
-    useContext(Context);
+ const { words } = wordsStore;
 
   const addToWord = () => {
     setWordCount(wordCount+1)
@@ -38,7 +38,7 @@ function CardGallery (){
      </Swiper>
      <p className='wordcount'>Выучено слов: {wordCount} </p>
       </>
-    )
-}
+    );
+});
 
 export default CardGallery

@@ -8,14 +8,13 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import './wordList.css'; 
 import useInput from '../../hooks/inputvalid';
-import Context from '../../context/context';
 
 
 
-function WordList({id,word,translation,category,transcription, handleDeleteWord}){
+function WordList({id,word,translation,category,transcription, handleDeleteWord, handleUpdateWord}){
 
     const [isVisible, setIsVisible] = useState(true);
-    const{updateWord} = useContext(Context);
+   
     const{
         value: inputCategory,
         hasError: isCategoryInputInvalid,
@@ -61,11 +60,6 @@ function WordList({id,word,translation,category,transcription, handleDeleteWord}
     if( isCategoryValid && isWordValid && isTranscriptionValid && isTranslationValid){
         isDisabled = false;
     }
-
-    const handleUpdateWord = (updatedWord) => {
-        updateWord(updatedWord);
-    }
-
 
     const inputValue = {
         russian: inputTranslation || translation , 

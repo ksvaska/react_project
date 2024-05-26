@@ -8,16 +8,15 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import styles from './main.module.css';
-import Context from '../../context/context';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Loading from '../loading/loading';
+import { observer } from 'mobx-react';
+import wordsStore from '../../stores/context';
 
-function Main(){
-
-   
- const { words, fetchWords, addWord, deleteWord } =
-  useContext(Context);
-  const [loading, setLoading] = useState(true);
+const Main = observer(()=>{
+ 
+ const { words, fetchWords, addWord, deleteWord, updateWord } = wordsStore;
+const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
@@ -28,16 +27,18 @@ function Main(){
       const handleAddWord = (newWord) => {
         addWord(newWord);
       };
+
+      const handleUpdateWord = (updatedWord) => {
+        updateWord(updatedWord);
+    };
      
-        
-      
       const handleDeleteWord = (id) => {
         deleteWord(id);
       };
 
+
       
     return(
-     
         <>  
         {loading ? ( <Loading/> ): (
           <>
@@ -62,8 +63,9 @@ function Main(){
         transcription={item.transcription} 
         translation={item.russian} 
         handleDeleteWord={handleDeleteWord}
+        handleUpdateWord={handleUpdateWord}
         />
-      )
+      );
     })}
        </TableBody>
                 </Table>
@@ -73,8 +75,8 @@ function Main(){
 
         </>
   
-    )
+    );
 
-}
+} );
 
 export default Main

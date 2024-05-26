@@ -2,8 +2,10 @@ import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import styles from './inputAdd.module.css'
 import { useState } from 'react';
+import { observer } from 'mobx-react-lite';
 
-function AddWord({onSubmitInWordlist}){
+const AddWord = observer((props)=>{
+  const {onSubmitInWordlist} = props;
   const [english, setEnglish] = useState("");
   const [transcription, setTranscription] = useState("");
   const [russian, setRussian] = useState("");
@@ -29,6 +31,6 @@ function AddWord({onSubmitInWordlist}){
       </Fab>
         </form>
     );
-}
+});
 
 export default AddWord
